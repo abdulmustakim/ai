@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="PixelForge AI - Ultra professional AI image generation website frontend." />
+  <title>PixelForge AI | AI Image Generator</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="noise"></div>
+  <div class="aurora aurora-one"></div>
+  <div class="aurora aurora-two"></div>
+
+  <header class="site-header" id="top">
+    <nav class="navbar container">
+      <a class="brand" href="#top" aria-label="PixelForge AI home">
+        <span class="brand-mark">PF</span>
+        <span>PixelForge <strong>AI</strong></span>
+      </a>
+
+      <button class="nav-toggle" id="navToggle" aria-label="Open menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+
+      <div class="nav-links" id="navLinks">
+        <a href="#generator">Generator</a>
+        <a href="#templates">Templates</a>
+        <a href="#tools">Tools</a>
+        <a href="#pricing">Pricing</a>
+        <a href="#faq">FAQ</a>
+      </div>
+
+      <div class="nav-actions">
+        <button class="icon-btn" id="themeToggle" aria-label="Toggle theme">☾</button>
+        <a class="btn btn-ghost" href="#dashboard">Dashboard</a>
+        <a class="btn btn-primary" href="#generator">Create Image</a>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero section-padding">
+      <div class="container hero-grid">
+        <div class="hero-copy reveal">
+          <div class="eyebrow"><span></span> Next-gen AI image creation platform</div>
+          <h1>Create studio-quality AI images from text in seconds.</h1>
+          <p class="hero-text">
+            Build posters, thumbnails, product mockups, wallpapers, avatars, concept art, and social media creatives using a polished AI generator interface.
+          </p>
+          <div class="hero-actions">
+            <a class="btn btn-primary btn-large" href="#generator">Start Generating</a>
+            <a class="btn btn-glass btn-large" href="#templates">Explore Templates</a>
+          </div>
+          <div class="trust-row" aria-label="Platform stats">
+            <div><strong>20+</strong><span>style presets</span></div>
+            <div><strong>4K</strong><span>export ready</span></div>
+            <div><strong>100%</strong><span>responsive UI</span></div>
+          </div>
+        </div>
+
+        <div class="hero-visual reveal delay-1" aria-label="AI image preview dashboard">
+          <div class="orbital-card main-preview">
+            <div class="preview-top">
+              <div class="window-dots"><i></i><i></i><i></i></div>
+              <span>Live Creation</span>
+            </div>
+            <div class="hero-art" id="heroArt">
+              <div class="planet"></div>
+              <div class="ring ring-a"></div>
+              <div class="ring ring-b"></div>
+              <div class="spark s1"></div>
+              <div class="spark s2"></div>
+              <div class="spark s3"></div>
+            </div>
+            <div class="prompt-chip">“Futuristic Indian city, cinematic lighting, ultra detailed”</div>
+          </div>
+          <div class="floating-card card-one">
+            <span>Style</span>
+            <strong>Cinematic 3D</strong>
+          </div>
+          <div class="floating-card card-two">
+            <span>Export</span>
+            <strong>PNG / JPG / WebP</strong>
+          </div>
+          <div class="floating-card card-three">
+            <span>Status</span>
+            <strong>Ready</strong>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="ticker" aria-label="Image categories">
+      <div class="ticker-track">
+        <span>Logo Design</span><span>YouTube Thumbnail</span><span>Poster</span><span>Anime Art</span><span>Product Mockup</span><span>Social Media Banner</span><span>Wallpaper</span><span>Character Design</span>
+        <span>Logo Design</span><span>YouTube Thumbnail</span><span>Poster</span><span>Anime Art</span><span>Product Mockup</span><span>Social Media Banner</span><span>Wallpaper</span><span>Character Design</span>
+      </div>
+    </section>
+
+    <section class="generator section-padding" id="generator">
+      <div class="container">
+        <div class="section-heading reveal">
+          <div class="eyebrow"><span></span> AI Generator</div>
+          <h2>Turn your imagination into polished visuals.</h2>
+          <p>Write a prompt, choose a style, select a ratio, and generate real AI images through the secure backend API connection.</p>
+        </div>
+
+        <div class="generator-panel reveal delay-1">
+          <div class="control-panel">
+            <label class="input-label" for="promptInput">Image prompt</label>
+            <textarea id="promptInput" rows="6" placeholder="Example: A futuristic AI robot designing a glowing website interface, neon blue lighting, cinematic, ultra realistic, 4K"></textarea>
+
+            <div class="mini-actions">
+              <button class="btn btn-small btn-glass" id="enhancePrompt">Improve Prompt</button>
+              <button class="btn btn-small btn-glass" id="randomPrompt">Random Idea</button>
+              <button class="btn btn-small btn-ghost" id="clearPrompt">Clear</button>
+            </div>
+
+            <div class="form-grid">
+              <div>
+                <label class="input-label" for="styleSelect">Style</label>
+                <select id="styleSelect">
+                  <option>Cinematic Realistic</option>
+                  <option>Anime Art</option>
+                  <option>3D Render</option>
+                  <option>Cyberpunk</option>
+                  <option>Logo Concept</option>
+                  <option>Poster Design</option>
+                  <option>Product Mockup</option>
+                  <option>Fantasy Art</option>
+                </select>
+              </div>
+              <div>
+                <label class="input-label" for="ratioSelect">Aspect ratio</label>
+                <select id="ratioSelect">
+                  <option value="square">Square 1:1</option>
+                  <option value="portrait">Portrait 4:5</option>
+                  <option value="landscape">Landscape 16:9</option>
+                </select>
+              </div>
+              <div>
+                <label class="input-label" for="qualitySelect">Quality</label>
+                <select id="qualitySelect">
+                  <option>Standard</option>
+                  <option>HD</option>
+                  <option>Ultra 4K</option>
+                </select>
+              </div>
+              <div>
+                <label class="input-label" for="countSelect">Images</label>
+                <select id="countSelect">
+                  <option value="2">2 Images</option>
+                  <option value="4" selected>4 Images</option>
+                  <option value="6">6 Images</option>
+                </select>
+              </div>
+            </div>
+
+            <label class="input-label" for="negativePrompt">Negative prompt</label>
+            <input id="negativePrompt" type="text" placeholder="blur, low quality, watermark, distorted face" />
+
+            <button class="btn btn-primary generate-btn" id="generateBtn">
+              <span class="btn-loader" aria-hidden="true"></span>
+              Generate Images
+            </button>
+
+            <div class="api-note">
+              <strong>Developer note:</strong> Real API mode is connected through <code>/api/generate-image</code>. Add your API key in <code>.env</code> and run the Node server.
+            </div>
+          </div>
+
+          <div class="output-panel">
+            <div class="output-head">
+              <div>
+                <h3>Generated Results</h3>
+                <p id="resultMeta">Your generated images will appear here.</p>
+              </div>
+              <button class="btn btn-small btn-glass" id="downloadAll">Download All</button>
+            </div>
+            <div class="results-grid" id="resultsGrid">
+              <div class="empty-state">
+                <div class="empty-icon">✦</div>
+                <h4>No images yet</h4>
+                <p>Enter a prompt and click generate to create your first visual.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="templates section-padding" id="templates">
+      <div class="container">
+        <div class="section-heading reveal">
+          <div class="eyebrow"><span></span> Template Studio</div>
+          <h2>Ready-made creative workflows.</h2>
+          <p>Pick a category and the website can auto-fill prompts for common student, creator, and business use cases.</p>
+        </div>
+        <div class="template-grid reveal delay-1" id="templateGrid"></div>
+      </div>
+    </section>
+
+    <section class="tools section-padding" id="tools">
+      <div class="container tools-grid">
+        <div class="section-heading left reveal">
+          <div class="eyebrow"><span></span> Smart Tools</div>
+          <h2>Everything an AI image platform needs.</h2>
+          <p>Add these tools to make your project look complete and professional for college, portfolio, or startup demo.</p>
+        </div>
+        <div class="feature-list reveal delay-1">
+          <article><span>01</span><h3>Prompt Enhancer</h3><p>Improve simple text into detailed professional AI prompts.</p></article>
+          <article><span>02</span><h3>Background Remover</h3><p>Prepare product photos, posters, and profile pictures.</p></article>
+          <article><span>03</span><h3>Image Upscaler</h3><p>Upgrade generated images for print and social media.</p></article>
+          <article><span>04</span><h3>History & Favorites</h3><p>Save user creations locally or in a real database.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="dashboard section-padding" id="dashboard">
+      <div class="container dashboard-card reveal">
+        <div>
+          <div class="eyebrow"><span></span> User Dashboard</div>
+          <h2>Your creative control room.</h2>
+          <p>Track generated images, saved prompts, downloads, favorites, account credits, and subscription status.</p>
+        </div>
+        <div class="dash-stats">
+          <div><strong id="historyCount">0</strong><span>Saved Creations</span></div>
+          <div><strong>25</strong><span>Free Credits</span></div>
+          <div><strong>8</strong><span>Preset Styles</span></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="pricing section-padding" id="pricing">
+      <div class="container">
+        <div class="section-heading reveal">
+          <div class="eyebrow"><span></span> Pricing</div>
+          <h2>Simple plans for every creator.</h2>
+          <p>Use this as a professional pricing layout. You can connect Razorpay/Stripe later.</p>
+        </div>
+        <div class="pricing-grid reveal delay-1">
+          <article class="price-card">
+            <h3>Free</h3>
+            <p>For students and testing.</p>
+            <strong>₹0</strong>
+            <ul><li>25 credits/month</li><li>Standard quality</li><li>Watermark optional</li></ul>
+            <a class="btn btn-glass" href="#generator">Start Free</a>
+          </article>
+          <article class="price-card popular">
+            <div class="badge">Popular</div>
+            <h3>Creator</h3>
+            <p>For YouTubers and designers.</p>
+            <strong>₹299</strong>
+            <ul><li>500 credits/month</li><li>HD export</li><li>Private gallery</li></ul>
+            <a class="btn btn-primary" href="#generator">Choose Plan</a>
+          </article>
+          <article class="price-card">
+            <h3>Business</h3>
+            <p>For brands and agencies.</p>
+            <strong>₹999</strong>
+            <ul><li>3000 credits/month</li><li>Team access</li><li>Priority support</li></ul>
+            <a class="btn btn-glass" href="#generator">Go Business</a>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="faq section-padding" id="faq">
+      <div class="container faq-grid">
+        <div class="section-heading left reveal">
+          <div class="eyebrow"><span></span> FAQ</div>
+          <h2>Common questions.</h2>
+          <p>Useful answers for users and project presentation.</p>
+        </div>
+        <div class="accordion reveal delay-1" id="accordion">
+          <button class="accordion-item active"><span>Is this a real AI image generator?</span><i>+</i><p>Yes. This version includes a secure Node.js backend route that connects to the OpenAI Images API after you add your API key in the .env file.</p></button>
+          <button class="accordion-item"><span>Can users download images?</span><i>+</i><p>Yes. Real generated PNG images can be previewed and downloaded directly from the results panel.</p></button>
+          <button class="accordion-item"><span>Is it mobile responsive?</span><i>+</i><p>Yes. It is designed mobile-first and works on phone, tablet, laptop, and desktop screens.</p></button>
+          <button class="accordion-item"><span>Can I add login and payment?</span><i>+</i><p>Yes. Add Firebase/Supabase for login and Razorpay/Stripe for subscriptions and credits.</p></button>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container footer-grid">
+      <div>
+        <a class="brand" href="#top"><span class="brand-mark">PF</span><span>PixelForge <strong>AI</strong></span></a>
+        <p>Ultra professional AI image generator website frontend for modern creative platforms.</p>
+      </div>
+      <div>
+        <h4>Pages</h4>
+        <a href="#generator">Generator</a>
+        <a href="#templates">Templates</a>
+        <a href="#pricing">Pricing</a>
+      </div>
+      <div>
+        <h4>Features</h4>
+        <a href="#tools">Prompt Helper</a>
+        <a href="#dashboard">Dashboard</a>
+        <a href="#faq">Support</a>
+      </div>
+      <div>
+        <h4>Contact</h4>
+        <a href="mailto:hello@pixelforge.ai">hello@pixelforge.ai</a>
+        <a href="#top">Back to top</a>
+      </div>
+    </div>
+    <div class="container footer-bottom">© 2026 PixelForge AI. Designed for project and portfolio use.</div>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>
